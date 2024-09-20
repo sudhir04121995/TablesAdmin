@@ -482,6 +482,28 @@ export const deleteProperty = async (id: string) => {
 };
 
 
+
+// Fetch all gothrams
+export const getGothrams = async () => {
+  return await axios.get(`${API_URL}/gothrams/`);
+};
+
+// Add a new gothram
+export const addGothram = async (gothramData: { name: string; description?: string }) => {
+  return await axios.post(`${API_URL}/gothrams/`, gothramData);
+};
+
+// Update an existing gothram
+export const updateGothram = async (id: string, gothramData: { name: string; description?: string }) => {
+  return await axios.put(`${API_URL}/gothrams/${id}/`, gothramData);
+};
+
+// Delete a gothram
+export const deleteGothram = async (id: string) => {
+  return await axios.delete(`${API_URL}/gothrams/${id}/`);
+};
+
+
 export const getDataTable = async (search: string = '', orderBy: string = '', order: 'asc' | 'desc' = 'asc', page: number = 1, pageSize: number = 10) => {
   try {
     const ordering = order === 'asc' ? orderBy : `-${orderBy}`;
@@ -535,4 +557,5 @@ export const apiService = {
 };
 
 export const BirthStarApi= 'http://103.214.132.20:8000/api/birth-stars/'
+export const GothramApi= 'http://103.214.132.20:8000/api/gothrams/'
 

@@ -30,6 +30,7 @@ const BirthStarList: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(10);
+  const [emptyBirthStar, setEmptyBirthStar] = useState('');
   const [showPopup, setShowPopup] = useState(false);
   const [deleteConfirmation, setDeleteConfirmation] = useState<boolean>(false);
   const [starToDelete, setStarToDelete] = useState<number | null>(null);
@@ -84,6 +85,11 @@ const BirthStarList: React.FC = () => {
   };
 
   const handleAddOrUpdateBirthStar = async () => {
+
+    if (!emptyBirthStar.trim()) {
+      notifyDelete('Please submit all required fields '); // Show error notification if the field is empty
+      return;
+    }
     const starData = addData;
     try {
       let response;
@@ -98,10 +104,9 @@ const BirthStarList: React.FC = () => {
           if (response.status === 200) {
             notify('Birth Star Added Successfully');
           }
-        } else {
-          notifyDelete('Please submit all required fields');
-        }
+        } 
       }
+      setEmptyBirthStar("");
       setNewBirthStar(null);
       setTamilSeries(null);
       setTeluguSeries(null);

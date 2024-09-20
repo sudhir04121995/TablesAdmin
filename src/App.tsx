@@ -56,6 +56,7 @@ import ComplectionTable from './components/ComplexionTable';
 import HeightTable from './components/ProfileMasterHeight';
 import ModesTable from './components/ProfileMasterModes';
 import PropertyTable from './components/PropertyWorth';
+import GothramTable from './components/Gothrams';
 
 
 function App() {
@@ -581,7 +582,15 @@ function App() {
                   </>
                 }
               />
-
+<Route
+                path="/family-master/gothrams"
+                element={
+                  <>
+                    <PageTitle title="GothramTable" />
+                    < GothramTable />
+                  </>
+                }
+              />
 
             </Routes>
           </DefaultLayout>
