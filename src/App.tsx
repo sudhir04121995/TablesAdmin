@@ -54,6 +54,8 @@ import FamilyValueTable from './components/FamilyValueTable';
 import MaritalStatus from './components/MaritalStatuses';
 import ComplectionTable from './components/ComplexionTable';
 import HeightTable from './components/ProfileMasterHeight';
+import ModesTable from './components/ProfileMasterModes';
+import PropertyTable from './components/PropertyWorth';
 
 
 function App() {
@@ -562,14 +564,23 @@ function App() {
                 path="/profile-master/modes"
                 element={
                   <>
-                    <PageTitle title="HeightTable" />
-                    <HeightTable />
+                    <PageTitle title="ModesTable" />
+                    <ModesTable />
                   </>
                 }
               />
 
 
 
+<Route
+                path="/family-master/family-Property-Worth"
+                element={
+                  <>
+                    <PageTitle title="PropertyTable" />
+                    < PropertyTable />
+                  </>
+                }
+              />
 
 
             </Routes>

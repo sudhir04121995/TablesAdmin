@@ -461,6 +461,27 @@ export const deleteMode = async (id: string) => {
 };
 
 
+// Fetch all properties
+export const getProperties = async () => {
+  return await axios.get(`${API_URL}/properties/`);
+};
+
+// Add a new property
+export const addProperty = async (propertyData: any) => {
+  return await axios.post(`${API_URL}/properties/`, propertyData);
+};
+
+// Update an existing property
+export const updateProperty = async (id: string, propertyData: any) => {
+  return await axios.put(`${API_URL}/properties/${id}/`, propertyData);
+};
+
+// Delete a property
+export const deleteProperty = async (id: string) => {
+  return await axios.delete(`${API_URL}/properties/${id}/`);
+};
+
+
 export const getDataTable = async (search: string = '', orderBy: string = '', order: 'asc' | 'desc' = 'asc', page: number = 1, pageSize: number = 10) => {
   try {
     const ordering = order === 'asc' ? orderBy : `-${orderBy}`;
